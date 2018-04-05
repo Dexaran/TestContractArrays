@@ -6,25 +6,34 @@ pragma solidity ^0.4.15;
  */
 
 contract ArrayTest {
-    
+
     uint256[] public uints;
     address[] public addresses;
-    
+
     function ArrayTest(address[] _addrs)
     {
+
+        addresses.length = _addrs.length;
+
         for (uint256 i; i<_addrs.length; i++)
         {
             addresses[i] = _addrs[i];
         }
     }
-    
+
     function getBalance(address _addr) constant returns(uint256)
     {
         return _addr.balance;
     }
-    
+
     function setUints(uint256[] _uints)
+
+
+
     {
+
+        uints.length = _uints.length;
+
         for (uint256 i; i<_uints.length; i++)
         {
             uints[i] = _uints[i];
