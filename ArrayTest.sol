@@ -3,28 +3,18 @@ pragma solidity ^0.4.15;
 /** Ethereum Classic messaging system reference implementation
  *
  *  Originally designed by Dexaran
+
+ Added getters / setters to testing purposes
+
+
+
+
  */
 
-contract ArrayTest {
+import {ArrayTest as ArrayContract} from './ArraysContract.sol';
 
-  uint256[] uints;
-  address[] addresses;
 
-  function ArrayTest(address[] _addrs)
-  {
-
-    addresses.length = _addrs.length;
-
-    for (uint256 i; i < _addrs.length; i++)
-    {
-      addresses[i] = _addrs[i];
-    }
-  }
-
-  function getBalance(address _addr) constant returns (uint256)
-  {
-    return _addr.balance;
-  }
+contract ArrayTest is ArrayContract {
 
   function getAddress(uint256 index_) public view returns (address) {
 
@@ -38,17 +28,7 @@ contract ArrayTest {
 
   }
 
-  function setUints(uint256[] _uints)
+  function ArrayTest(address[] addrs) public ArrayContract(addrs) {
 
-
-
-  {
-
-    uints.length = _uints.length;
-
-    for (uint256 i; i < _uints.length; i++)
-    {
-      uints[i] = _uints[i];
-    }
   }
 }
